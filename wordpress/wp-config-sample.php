@@ -1,5 +1,7 @@
 //*** be in at the root of your wordpress installation
-//** curl -LO ./wp-config-sample.php
+//** curl -LO https://git.io/fhnsM ./wp-config-sample.php
+//* EDIT wp-config-sample.php
+//* mv wp-config-sample.php wp-config.php
 //* chown $www-user
 //* chmod 0644 ./wp-config*.php
 
