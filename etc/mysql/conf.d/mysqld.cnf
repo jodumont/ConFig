@@ -1,7 +1,7 @@
 [mysqld]
-#user = mysql
+#user=mysql
 #skip-networking
-#bind-address = 127.0.0.1
+#bind-address=127.0.0.1
 explicit_defaults_for_timestamp=1
 
 # Prevents some mistakes like inserting invalid dates etc.
