@@ -2,7 +2,7 @@
 #user = mysql
 #skip-networking
 #bind-address = 127.0.0.1
-#explicit_defaults_for_timestamp
+explicit_defaults_for_timestamp
 
 # Prevents some mistakes like inserting invalid dates etc.
 sql_mode = NO_ENGINE_SUBSTITUTION,STRICT_ALL_TABLES
@@ -18,9 +18,7 @@ performance_schema = OFF
 query_cache_type = 1
 
 slow_query_log = 1
-log_warnings = 2
 log_slow_verbosity = query_plan
-
 log-error = /var/log/mysql/error.log
 
 # ssl-ca=/etc/mysql/certs/ca.pem
