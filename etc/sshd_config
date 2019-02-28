@@ -1,9 +1,9 @@
 ### as root
-## curl -LO https://git.io/fhnsw /etc/sshd_config
+## curl -Lo /etc/ssh/sshd_config https://github.com/jodumont/configFile/edit/master/etc/sshd_config
 # systemctl restart sshd
 
 Port 22 # Recommeded to change it, require extra steps if SELinux is enabled
-AddressFamily inet  # means only IPv4
+AddressFamily inet # means only IPv4
 #ListenAddress 0.0.0.0
 
 HostKey /etc/ssh/ssh_host_rsa_key
@@ -14,15 +14,15 @@ LogLevel INFO # Recommended value for fail2ban
 
 StrictModes yes
 LoginGraceTime 1m
-PermitRootLogin no  # Recommended: no or prohibit-password
-#AllowGroups  # Recommended: ssh, wheel or sudo
+PermitRootLogin no # Recommended: no or prohibit-password
+AllowGroups ssh # Recommended: ssh, wheel or sudo
 #AllowUsers
-MaxAuthTries 5  # Recommended: 2
+MaxAuthTries 5 # Recommended: 2
 MaxSessions 3
 
 PubkeyAuthentication yes
 AuthorizedKeysFile .ssh/authorized_keys
-PasswordAuthentication yes  # Recommended: no
+PasswordAuthentication yes # Recommended: no
 PermitEmptyPasswords no
 ChallengeResponseAuthentication no
 
@@ -32,7 +32,7 @@ AllowAgentForwarding no
 AllowTcpForwarding no
 GatewayPorts no
 X11Forwarding no
-PrintMotd no  # Recommended: yes if /etc/issue.net is not exposing OS info
+PrintMotd no # Recommended: yes if /etc/issue.net is not exposing OS info
 PrintLastLog yes
 TCPKeepAlive no
 PermitUserEnvironment no
