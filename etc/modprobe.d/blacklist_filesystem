@@ -1,8 +1,26 @@
 ## lynis recommandation FILE-6430
+
+### CCE-80137-3
 install cramfs /bin/true
+
+### CCE-80138-1
 install freevxfs /bin/true
+
+### CCE-80140-7
 install hfs /bin/true
+
+### CCE-80141-5
 install hfsplus /bin/true
+
+### CCE-80139-9
 install jffs2 /bin/true
+
+### CCE-80142-3
 install squashfs /bin/true
+
+### CCE-80143-1
 install udf /bin/true
+
+## Another Layer against USB Key
+# but also used by EFI
+#install vfat /bin/true
