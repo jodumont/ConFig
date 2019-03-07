@@ -1,0 +1,13 @@
+## true or false ?
+#ref: https://github.com/OpenSCAP/scap-security-guide/issues/539
+
+### https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-2636
+install n_hdlc /bin/true
+
+### Floppy & Parallel Port
+install floppy /bin/true
+install parport_pc /bin/true
+
+### Sound
+install soundcore /bin/true
+install usb-midi /bin/true
