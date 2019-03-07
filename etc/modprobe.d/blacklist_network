@@ -1,0 +1,14 @@
+### https://www.stigviewer.com/stig/red_hat_enterprise_linux_5/2017-03-01/finding/V-22524
+install appletalk /bin/true
+
+### https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=dccp
+install dccp /bin/true
+
+### https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=rds
+install rds /bin/true
+
+### https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=sctp
+install sctp /bin/true
+
+### https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=tipc
+install tipc /bin/true
