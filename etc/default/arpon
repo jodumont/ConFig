@@ -1,2 +1,2 @@
-DAEMON_OPTS="-q -f /var/log/arpon/arpon.log -g -S"
+DAEMON_OPTS="-q -f /var/log/arpon/arpon.log -g -D"
 RUN="yes"
