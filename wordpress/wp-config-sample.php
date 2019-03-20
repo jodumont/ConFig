@@ -19,10 +19,14 @@ define('DB_COLLATE', 'utf8mb4_general_ci');
 //** https://codex.wordpress.org/Editing_wp-config.php#table_prefix
 $table_prefix = '';
 
+//** apps from https://github.com/10up/wp-vulnerability-scanner
+//** token from https://wpvulndb.com/users/edit
+//** define( 'VULN_API_TOKEN', 'YOUR_TOKEN_HERE' );
+
 //** https://codex.wordpress.org/Editing_wp-config.php#Custom_User_and_Usermeta_Tables
 //** you have to rename the tables before (IE: Mysql [wordpress_db]> RENAME TABLE wp_user wp_234kJas)
-define( 'CUSTOM_USER_TABLE',      $table_prefix . '234kJas' );
-define( 'CUSTOM_USER_META_TABLE', $table_prefix . 'L34jD' );
+//** define( 'CUSTOM_USER_TABLE',      $table_prefix . '234kJas' );
+//** define( 'CUSTOM_USER_META_TABLE', $table_prefix . 'L34jD' );
 
 //** https://codex.wordpress.org/Editing_wp-config.php#Security_Keys
 //** generated with: https://api.wordpress.org/secret-key/1.1/salt/
@@ -68,17 +72,20 @@ define( 'UPLOADS', 'assets' );
 
 //** https://codex.wordpress.org/Editing_wp-config.php#Empty_Trash
 define( 'MEDIA_TRASH', true );
+define( 'EMPTY_TRASH_DAYS', 10 );
 
 //**https://codex.wordpress.org/Editing_wp-config.php#Cleanup_Image_Edits
 define( 'IMAGE_EDIT_OVERWRITE', true );
 
 //** https://codex.wordpress.org/Editing_wp-config.php#Post_Revisions
 define( 'WP_POST_REVISIONS', 8 );
+define( 'AUTOSAVE_INTERVAL', 120 );
 
 //** https://codex.wordpress.org/Editing_wp-config.php#Automatic_Database_Optimizing
 define( 'WP_ALLOW_REPAIR', true );
 
 //** https://codex.wordpress.org/Editing_wp-config.php#Override_of_default_file_permissions
+define( 'FS_METHOD','direct' );
 define( 'FS_CHMOD_DIR',  ( 0755 & ~ umask() ) );
 define( 'FS_CHMOD_FILE', ( 0644 & ~ umask() ) );
 
