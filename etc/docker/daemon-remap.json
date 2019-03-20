@@ -1,4 +1,6 @@
 {
+  "data-root": "/var/lib/docker",
+  "dns": ["1.1.1.1", "1.0.0.1"],
   "experimental": false,
   "live-restore": true,
   "no-new-privileges": false,
