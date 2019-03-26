@@ -58,9 +58,9 @@ define( 'WP_CONTENT_URL', 'https://www.domain.tld' );
 
 //** https://codex.wordpress.org/Editing_wp-config.php#Moving_plugin_folder
 //** mv wp-content/plugins ./vendor
-define( 'WP_PLUGINDIR',  dirname(__FILE__) . '/vendor' );
-define( 'WP_PLUGIN_DIR', dirname(__FILE__) . '/vendor' );
-define( 'WP_PLUGIN_URL', 'https://www.domain.tld/vendor' );
+define( 'WP_PLUGINDIR',  dirname(__FILE__) . '/vendors' );
+define( 'WP_PLUGIN_DIR', dirname(__FILE__) . '/vendors' );
+define( 'WP_PLUGIN_URL', 'https://www.domain.tld/vendors' );
 
 //** https://codex.wordpress.org/Editing_wp-config.php#Moving_themes_folder
 //** mv wp-content/themes ./themes
