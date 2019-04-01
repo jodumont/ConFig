@@ -1,0 +1,14 @@
+server {
+	listen 80;
+	listen [::]:80;
+	server_name _;
+
+	# ACME-challenge
+	location ^~ /.well-known/acme-challenge/ {
+		root /home/www/_letsencrypt;
+	}
+
+	location / {
+		return 301 https://example.com$request_uri;
+	}
+}
