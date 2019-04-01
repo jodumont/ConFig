@@ -18,17 +18,4 @@ server {
 
 	include /etc/nginx/conf.d/security.server;
 }
-
-# HTTP redirect
-server {
-	listen 80;
-	listen [::]:80;
-
-	server_name .example.com;
-
-	include /etc/nginx/conf.d/letsencrypt.server;
-
-	location / {
-		return 301 https://example.com$request_uri;
-	}
-}
+include /etc/nginx/conf.d/letsencrypt.http;
