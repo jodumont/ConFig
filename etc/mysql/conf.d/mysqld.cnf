@@ -1,7 +1,8 @@
 [mysqld]
-#user=mysql
-#skip-networking
-#bind-address=127.0.0.1
+user=mysql
+datadir=/home/mysql
+skip-networking
+bind-address=127.0.0.1
 explicit_defaults_for_timestamp=1
 
 # Prevents some mistakes like inserting invalid dates etc.
@@ -9,7 +10,7 @@ sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_ALL_TABLES
 
 # Disabling symbolic-links is recommended to prevent assorted security risks
 symbolic-links=0
-#local-infile=0
+local-infile=0
 
 # http://bugs.mysql.com/bug.php?id=68514
 performance_schema=OFF
