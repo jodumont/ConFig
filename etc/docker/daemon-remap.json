@@ -1,5 +1,5 @@
 {
-  "data-root": "/var/lib/docker",
+  "data-root": "/home/docker",
   "dns": ["1.1.1.1", "1.0.0.1"],
   "experimental": false,
   "live-restore": true,
