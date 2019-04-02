@@ -52,7 +52,7 @@ define( 'COOKIE_DOMAIN',  'www.domain.tld' );
 define( 'NOBLOGREDIRECT', 'https://www.domain.tld' );
 
 //** https://codex.wordpress.org/Editing_wp-config.php#Moving_wp-content_folder
-//** rm wp-content/index ; mv wp-content/* .
+//** rm wp-content/index.php ; mv wp-content/* .
 define( 'WP_CONTENT_DIR', dirname(__FILE__) . '' );
 define( 'WP_CONTENT_URL', 'https://www.domain.tld' );
 
