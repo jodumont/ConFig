@@ -1,7 +1,7 @@
 {
-  "data-root": "/var/lib/docker",
-  "dns": ["1.1.1.1", "1.0.0.1"],
+  "data-root": "/home/docker",
   "experimental": false,
   "live-restore": true,
+  "log-driver": "journald",
   "no-new-privileges": false
 }
