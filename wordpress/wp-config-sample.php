@@ -13,8 +13,7 @@ define( 'DB_USER',     '' );
 define( 'DB_PASSWORD', '' );
 define('DB_HOST',      '' );
 
-define('DB_CHARSET', 'utf8mb4');
-define('DB_COLLATE', 'utf8mb4_general_ci');
+define('DB_CHARSET', 'utf8');
 
 //** https://codex.wordpress.org/Editing_wp-config.php#table_prefix
 $table_prefix = '';
