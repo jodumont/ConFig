@@ -92,6 +92,10 @@ define( 'FS_CHMOD_FILE', ( 0644 & ~ umask() ) );
 define( 'FORCE_SSL_LOGIN', true );
 define( 'FORCE_SSL_ADMIN', true );
 
+//** https://wordpress.org/support/article/administration-over-ssl/#using-a-reverse-proxy
+if (strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false)
+$_SERVER['HTTPS']='on';
+
 //** https://codex.wordpress.org/Editing_wp-config.php#Disable_the_Plugin_and_Theme_Editor
 define( 'DISALLOW_FILE_EDIT', true );
 
