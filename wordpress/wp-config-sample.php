@@ -8,67 +8,36 @@
 <?php
 
 //** https://codex.wordpress.org/Editing_wp-config.php#Configure_Database_Settings
-define( 'DB_NAME',     '' );
-define( 'DB_USER',     '' );
+define( 'DB_NAME', '' );
+define( 'DB_USER', '' );
 define( 'DB_PASSWORD', '' );
-define('DB_HOST',      '' );
+define('DB_HOST', 'localhost:/var/run/mysqld/mysqld.sock' );
 
-define('DB_CHARSET', 'utf8');
+define('DB_CHARSET', 'utf8mb4');
 
 //** https://codex.wordpress.org/Editing_wp-config.php#table_prefix
 $table_prefix = '';
 
-//** apps from https://github.com/10up/wp-vulnerability-scanner
-//** token from https://wpvulndb.com/users/edit
-//** define( 'VULN_API_TOKEN', 'YOUR_TOKEN_HERE' );
-
-//** https://codex.wordpress.org/Editing_wp-config.php#Custom_User_and_Usermeta_Tables
-//** you have to rename the tables before (IE: Mysql [wordpress_db]> RENAME TABLE wp_user wp_234kJas)
-//** define( 'CUSTOM_USER_TABLE',      $table_prefix . '234kJas' );
-//** define( 'CUSTOM_USER_META_TABLE', $table_prefix . 'L34jD' );
-
 //** https://codex.wordpress.org/Editing_wp-config.php#Security_Keys
 //** generated with: https://api.wordpress.org/secret-key/1.1/salt/
-define('AUTH_KEY',         '');
-define('SECURE_AUTH_KEY',  '');
-define('LOGGED_IN_KEY',    '');
-define('NONCE_KEY',        '');
-define('SECURITY_KEY',     '');
+define('AUTH_KEY', '');
+define('SECURE_AUTH_KEY', '');
+define('LOGGED_IN_KEY', '');
+define('NONCE_KEY', '');
+define('SECURITY_KEY', '');
 
-define('AUTH_SALT',        '');
+define('AUTH_SALT', '');
 define('SECURE_AUTH_SALT', '');
-define('LOGGED_IN_SALT',   '');
-define('NONCE_SALT',       '');
-define('SECURITY_SALT',    '');
+define('LOGGED_IN_SALT', '');
+define('NONCE_SALT', '');
+define('SECURITY_SALT', '');
 
-//** https://codex.wordpress.org/Editing_wp-config.php#WP_SITEURL
-define( 'WP_SITEURL', 'https://www.domain.tld' );
-define( 'WP_HOME',    'https://www.domain.tld' );
-
-//** https://codex.wordpress.org/Editing_wp-config.php#Set_Cookie_Domain
-//** Prevent sending cookies with each request
-define( 'COOKIE_DOMAIN',  'www.domain.tld' );
-define( 'NOBLOGREDIRECT', 'https://www.domain.tld' );
-
-//** https://codex.wordpress.org/Editing_wp-config.php#Moving_wp-content_folder
-//** rm wp-content/index.php ; mv wp-content/* .
-define( 'WP_CONTENT_DIR', dirname(__FILE__) . '' );
-define( 'WP_CONTENT_URL', 'https://www.domain.tld' );
-
-//** https://codex.wordpress.org/Editing_wp-config.php#Moving_plugin_folder
-//** mv wp-content/plugins ./vendor
-define( 'WP_PLUGINDIR',  dirname(__FILE__) . '/vendors' );
-define( 'WP_PLUGIN_DIR', dirname(__FILE__) . '/vendors' );
-define( 'WP_PLUGIN_URL', 'https://www.domain.tld/vendors' );
-
-//** https://codex.wordpress.org/Editing_wp-config.php#Moving_themes_folder
-//** mv wp-content/themes ./themes
-$theme_root = WP_CONTENT_DIR . '/themes';
-
+///*** PREFERENCE
 //** https://codex.wordpress.org/Editing_wp-config.php#Moving_uploads_folder
 //** mv wp-content/uploads ./assets
 define( 'UPLOADS', 'assets' );
 
+///*** PERFORMANCE
 //** https://codex.wordpress.org/Editing_wp-config.php#Empty_Trash
 define( 'MEDIA_TRASH', true );
 define( 'EMPTY_TRASH_DAYS', 10 );
@@ -82,6 +51,43 @@ define( 'AUTOSAVE_INTERVAL', 120 );
 
 //** https://codex.wordpress.org/Editing_wp-config.php#Automatic_Database_Optimizing
 define( 'WP_ALLOW_REPAIR', true );
+
+define( 'WP_MEMORY_LIMIT', '64M' );
+define( 'WP_MAX_MEMORY_LIMIT', '256M' );
+
+//** https://codex.wordpress.org/Editing_wp-config.php#Cache
+//* define( 'WP_CACHE', true );
+
+define( 'COMPRESS_CSS',        true );
+define( 'COMPRESS_SCRIPTS',    true );
+define( 'CONCATENATE_SCRIPTS', true );
+define( 'ENFORCE_GZIP',        true );
+
+//** install https://wordpress.org/plugins/redis-cache/
+//** configure https://github.com/hestiacp/hestiacp/issues/337#issuecomment-503344508
+//* define( 'WP_REDIS_SCHEME', 'unix' );
+//* define( 'WP_REDIS_DATABASE', '0' );
+//* define( 'WP_REDIS_PATH', '/var/run/redis/redis.sock' );
+//* define( 'WP_REDIS_PASSWORD', '' );
+
+//** https://codex.wordpress.org/Editing_wp-config.php#WP_SITEURL
+define( 'WP_SITEURL', 'https://www.domain.tld' );
+define( 'WP_HOME',    'https://www.domain.tld' );
+
+//** https://codex.wordpress.org/Editing_wp-config.php#Set_Cookie_Domain
+//** Prevent sending cookies with each request
+define( 'COOKIE_DOMAIN',  'www.domain.tld' );
+define( 'NOBLOGREDIRECT', 'https://www.domain.tld' );
+
+///*** SECURITY
+//** https://codex.wordpress.org/Editing_wp-config.php#Custom_User_and_Usermeta_Tables
+//** you have to rename the tables before (IE: Mysql [wordpress_db]> RENAME TABLE wp_user wp_234kJas)
+//* define( 'CUSTOM_USER_TABLE',      $table_prefix . '234kJas' );
+//* define( 'CUSTOM_USER_META_TABLE', $table_prefix . 'L34jD' );
+
+//** apps from https://github.com/10up/wp-vulnerability-scanner
+//** token from https://wpvulndb.com/users/edit
+//* define( 'VULN_API_TOKEN', 'YOUR_TOKEN_HERE' );
 
 //** https://codex.wordpress.org/Editing_wp-config.php#Override_of_default_file_permissions
 define( 'FS_METHOD','direct' );
@@ -108,17 +114,6 @@ define( 'WP_DEBUG_LOG',     false );
 define( 'WP_DEBUG_DISPLAY', false );
 define( 'SCRIPT_DEBUG',     false );
 define( 'SAVEQUERIES',      false );
-
-define( 'WP_MEMORY_LIMIT',     '64M' );
-define( 'WP_MAX_MEMORY_LIMIT', '256M' );
-
-//** https://codex.wordpress.org/Editing_wp-config.php#Cache
-//** define( 'WP_CACHE', true );
-
-define( 'COMPRESS_CSS',        true );
-define( 'COMPRESS_SCRIPTS',    true );
-define( 'CONCATENATE_SCRIPTS', true );
-define( 'ENFORCE_GZIP',        true );
 
 //** https://codex.wordpress.org/Editing_wp-config.php#Disable_WordPress_Auto_Updates
 define( 'AUTOMATIC_UPDATER_DISABLED',   false );  // Disable all automatic updates
