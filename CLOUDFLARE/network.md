@@ -3,6 +3,6 @@
 
 ## IPv6 Compatibility: ON
 
-## Websocket: OM
+## Websocket: ON
 
 ## IP Geolocation: YES
