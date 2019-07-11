@@ -6,16 +6,20 @@
 
 >  be sure your USER have the right to **write** in your `$DESTINATION`
 
-wp db export $DESTINATION/wp.sql --allow-root
+/usr/local/bin/wp db export $DESTINATION/wp.sql --allow-root
 
 ## update core
 
-wp core update --yes --path=/var/www/domain.tld/
+/usr/local/bin/wp core update --yes --path=/var/www/domain.tld/
 
 ## update plugin
 
-wp plugin update --all --yes --path=/var/www/domain.tld/
+/usr/local/bin/wp plugin update --all --yes --path=/var/www/domain.tld/
 
 ## update theme
 
-wp theme update --all --yes --path=/var/www/domain.tld/
+/usr/local/bin/wp theme update --all --yes --path=/var/www/domain.tld/
+
+## civicrm
+
+/usr/local/bin/wp --user=WPUSER --url=https://domain.tld --path=/var/www/domain.tld/ civicrm api job.execute auth=0
