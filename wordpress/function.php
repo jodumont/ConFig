@@ -31,6 +31,7 @@ add_filter('xmlrpc_enabled', '__return_false');
 remove_action( 'wp_head', 'rsd_link' ) ;
 
 // Hide Version
+// but interfere with wp_version_check() and update
 remove_action( 'wp_head', 'wp_generator' ) ;
 
 // Remove WLManifest Link
