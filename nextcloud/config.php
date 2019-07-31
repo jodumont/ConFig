@@ -5,7 +5,7 @@ $CONFIG = array (
   'instanceid' => '',
   'passwordsalt' => '',
   'secret' => '',
-  'trusted_domains' => 
+  'trusted_domains' =>
   array (
     0 => '',
   ),
@@ -24,7 +24,6 @@ $CONFIG = array (
   'mail_smtpmode' => '',
   'mail_sendmailmode' => '',
   'memcache.local' => '\OC\Memcache\APCu',
-  'memcache.distributed' => '\OC\Memcache\Redis',
   'memcache.locking' => '\OC\Memcache\Redis',
   'redis' => [ # https://github.com/JDmnT/Debian/blob/master/hestia-install.sh#L21
      'host' => '/run/redis/redis.sock', # file socket is faster and more secure
