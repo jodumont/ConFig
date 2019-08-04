@@ -102,6 +102,9 @@ define( 'FORCE_SSL_ADMIN', true );
 if (strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false)
 $_SERVER['HTTPS']='on';
 
+//** Make a network
+define('WP_ALLOW_MULTISITE', true);
+
 //** https://codex.wordpress.org/Editing_wp-config.php#Disable_the_Plugin_and_Theme_Editor
 define( 'DISALLOW_FILE_EDIT', true );
 
