@@ -1,51 +1,21 @@
-## curl -o /etc/ssh/sshd_config -L https://git.io/fhhzL
-
-Port 22
-AddressFamily inet
-#ListenAddress
-
-HostKey /etc/ssh/ssh_host_rsa_key
-HostKey /etc/ssh/ssh_host_ed25519_key
-
-RekeyLimit default none
-SyslogFacility AUTH
-LogLevel VERBOSE
-
-LoginGraceTime 1m
-PermitRootLogin no
-AllowGroups ssh
-StrictModes yes
-MaxAuthTries 5
-MaxSessions 2
-
-PubkeyAuthentication yes
-AuthorizedKeysFile .ssh/authorized_keys
-
-HostbasedAuthentication no
-IgnoreRhosts yes
-
-PasswordAuthentication yes
-PermitEmptyPasswords no
-ChallengeResponseAuthentication no
-
 UsePAM yes
+StrictModes yes
+PermitRootLogin yes
+
+ChallengeResponseAuthentication no
+PasswordAuthentication no
 AllowAgentForwarding no
 AllowTcpForwarding no
-GatewayPorts no
 X11Forwarding no
-PermitTTY yes
-PrintMotd no
-PrintLastLog yes
-TCPKeepAlive no
-PermitUserEnvironment no
-Compression no
-ClientAliveInterval 0
-ClientAliveCountMax 2
-UseDNS no
-PidFile /var/run/sshd.pid
-MaxStartups 10:30:100
+GatewayPorts no
 PermitTunnel no
+TCPKeepAlive no
+PrintMotd no
+UseDNS no
 
-Banner /etc/issue.net
+MaxAuthTries 2
+ClientAliveCountMax 2
+ClientAliveInterval 0
+
 AcceptEnv LANG LC_*
 Subsystem sftp /usr/lib/openssh/sftp-server
