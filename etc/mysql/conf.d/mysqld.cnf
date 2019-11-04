@@ -14,7 +14,7 @@ bind-address = 127.0.0.1
 explicit_defaults_for_timestamp=1
 
 key_buffer_size = 16M
-max_allowed_packe = 32M
+max_allowed_packet = 32M
 thread_stack = 192K
 thread_cache_size = 8
 myisam_recover_options = BACKUP
