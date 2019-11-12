@@ -1,6 +1,12 @@
 // ref: https://github.com/scorpiock/wp-perf-optimization-without-plugin/blob/master/functions.php
 // Update following in your WordPress theme's functions.php file
 
+// Remove Block Library CSS
+function wpassist_remove_block_library_css(){
+    wp_dequeue_style( 'wp-block-library' );
+}
+add_action( 'wp_enqueue_scripts', 'wpassist_remove_block_library_css' );
+
 // Remove Query String from Static Resources
 function remove_cssjs_ver( $src ) {if( strpos( $src, '?ver=')) $src = remove_query_arg('ver', $src); return $src;}
 add_filter('style_loader_src', 'remove_cssjs_ver', 10, 2);
