@@ -1,0 +1,3 @@
+[upsmaster]
+password = Ideally a MD5 or SHA or your password
+upsmon master
