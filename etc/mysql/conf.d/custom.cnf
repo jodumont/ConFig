@@ -1,0 +1,103 @@
+# to use by itself with linuxserver/docker-mariadb as an example
+
+[client]
+default-character-set = utf8mb4
+
+[isamchk]
+key_buffer_size = 16M
+
+[mysql]
+default-character-set = utf8mb4
+no-auto-rehash	# faster start of mysql but no tab completion
+
+[mysqld]
+skip-host-cache
+skip-networking
+skip-name-resolve
+skip-external-locking
+
+explicit_defaults_for_timestamp = 1
+
+max_connections	= 100
+connect_timeout	= 5
+wait_timeout = 600
+max_allowed_packet = 16M
+thread_cache_size = 128
+sort_buffer_size = 4M
+bulk_insert_buffer_size = 16M
+tmp_table_size = 32M
+max_heap_table_size = 32M
+binlog_format = mixed
+
+myisam_recover_options = BACKUP
+key_buffer_size = 128M
+#open-files-limit = 2000
+table_open_cache = 400
+myisam_sort_buffer_size = 512M
+concurrent_insert = 2
+read_buffer_size = 2M
+read_rnd_buffer_size = 1M
+
+query_cache_limit = 128K
+query_cache_size = 64M
+#query_cache_type = DEMAND
+
+#general_log_file = /config/log/mysql/mysql.log
+#general_log = 1
+
+log_warnings = 2
+
+slow_query_log = 1
+slow_query_log_file = /config/log/mysql/mariadb-slow.log
+long_query_time = 10
+
+#log_slow_rate_limit = 1000
+log_slow_verbosity = query_plan
+
+#log-queries-not-using-indexes
+#log_slow_admin_statements
+
+#server-id = 1
+#report_host = master1
+#auto_increment_increment = 2
+#auto_increment_offset = 1
+
+log_bin = /config/log/mysql/mariadb-bin
+log_bin_index = /config/log/mysql/mariadb-bin.index
+
+#sync_binlog = 1
+expire_logs_days = 10
+max_binlog_size = 100M
+
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+character-set-client-handshake = FALSE
+
+sql_mode = NO_ENGINE_SUBSTITUTION,NO_AUTO_CREATE_USER,STRICT_ALL_TABLES
+#sql_mode = NO_ENGINE_SUBSTITUTION,TRADITIONAL
+
+performance_schema = OFF
+symbolic-links = 0
+local-infile = 0
+
+default_storage_engine = InnoDB
+
+#innodb_log_file_size	= 50M
+innodb_buffer_pool_size	= 256M
+innodb_log_buffer_size	= 8M
+innodb_file_per_table	= 1
+innodb_open_files	= 400
+innodb_io_capacity	= 400
+innodb_flush_method	= O_DIRECT
+
+# ssl-ca = /etc/mysql/cacert.pem
+# ssl-cert = /etc/mysql/server-cert.pem
+# ssl-key = /etc/mysql/server-key.pem
+
+[mysqldump]
+quick
+quote-names
+max_allowed_packet = 16M
+
+[mysqld_safe]
+nice = 0
