@@ -1,21 +1,46 @@
-UsePAM yes
-StrictModes yes
-PermitRootLogin yes
+Port 22
+Protocol 2
+MaxAuthTries 2
+LoginGraceTime 30s
+ClientAliveCountMax 3
+ClientAliveInterval 60
 
-ChallengeResponseAuthentication no
-PasswordAuthentication no
-AllowAgentForwarding no
-AllowTcpForwarding no
-X11Forwarding no
+AllowGroups wheel sudo ssh root
+PidFile /var/run/sshd.pid
+MaxStartups 10:30:100
+LogLevel VERBOSE
+
+HostKey /etc/ssh/ssh_host_ed25519_key
+#HostKey /etc/ssh/ssh_host_rsa_key
+#VersionAddendum none
+#Banner none
+
+PermitRootLogin prohibit-password
+PubkeyAuthentication yes
+PrintLastLog yes
+IgnoreRhosts yes
+StrictModes yes
+
+UseDNS no
+UsePAM no
+PrintMotd no
+Compression no
+TCPKeepAlive no
 GatewayPorts no
 PermitTunnel no
 TCPKeepAlive no
-PrintMotd no
-UseDNS no
-
-MaxAuthTries 2
-ClientAliveCountMax 2
-ClientAliveInterval 0
+X11Forwarding no
+AllowTcpForwarding no
+AllowAgentForwarding no
+PermitEmptyPasswords no 
+PermitUserEnvironment no
+PasswordAuthentication no
+HostbasedAuthentication no
+ChallengeResponseAuthentication no
 
 AcceptEnv LANG LC_*
-Subsystem sftp /usr/lib/openssh/sftp-server
+Subsystem sftp  /usr/lib/ssh/sftp-server -f AUTHPRIV -l INFO
+
+Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
+KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,diffie-hellman-group-exchange-sha256
+MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512,hmac-sha2-256,umac-128@openssh.com
