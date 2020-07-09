@@ -9,8 +9,8 @@ add_action( 'wp_enqueue_scripts', 'wpassist_remove_block_library_css' );
 
 // Remove Query String from Static Resources
 function remove_cssjs_ver( $src ) {if( strpos( $src, '?ver=')) $src = remove_query_arg('ver', $src); return $src;}
-add_filter('style_loader_src', 'remove_cssjs_ver', 10, 2);
-add_filter('script_loader_src', 'remove_cssjs_ver', 10, 2);
+add_filter('style_loader_src', 'remove_cssjs_ver', 10, 2); // disable this if you use a plugin to remove string on JS/CSS
+add_filter('script_loader_src', 'remove_cssjs_ver', 10, 2); // disable this if you use a plugin to remove string on JS/CSS
 
 // Remove Emojis
 remove_action('wp_head', 'print_emoji_detection_script', 7);
