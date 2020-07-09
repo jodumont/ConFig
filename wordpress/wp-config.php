@@ -13,7 +13,7 @@ define( 'DB_USER', '' );
 define( 'DB_PASSWORD', '' );
 define('DB_HOST', 'localhost:/var/run/mysqld/mysqld.sock' );
 
-define('DB_CHARSET', 'utf8mb4');
+define('DB_CHARSET', 'utf8');
 
 //** https://codex.wordpress.org/Editing_wp-config.php#table_prefix
 $table_prefix = '';
@@ -58,10 +58,10 @@ define( 'WP_MAX_MEMORY_LIMIT', '256M' );
 //** https://codex.wordpress.org/Editing_wp-config.php#Cache
 //* define( 'WP_CACHE', true );
 
-define( 'COMPRESS_CSS',        true );
-define( 'COMPRESS_SCRIPTS',    true );
-define( 'CONCATENATE_SCRIPTS', true );
-define( 'ENFORCE_GZIP',        true );
+define( 'COMPRESS_CSS',        true ); // disable this if you use a plugin to compress/minify your CSS
+define( 'COMPRESS_SCRIPTS',    true ); // disable this if you use a plugin to compress/minify your JS
+define( 'CONCATENATE_SCRIPTS', true ); // disable this if you use a plugin to merge your JS and CSS scripts together
+define( 'ENFORCE_GZIP',        true ); // disable this if you use a plugin to compress with GZIP
 
 //** install https://wordpress.org/plugins/redis-cache/
 //** configure https://github.com/hestiacp/hestiacp/issues/337#issuecomment-503344508
@@ -103,7 +103,7 @@ if (strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false)
 $_SERVER['HTTPS']='on';
 
 //** Make a network
-define('WP_ALLOW_MULTISITE', true);
+// define('WP_ALLOW_MULTISITE', true);
 
 //** https://codex.wordpress.org/Editing_wp-config.php#Disable_the_Plugin_and_Theme_Editor
 define( 'DISALLOW_FILE_EDIT', true );
@@ -116,12 +116,12 @@ define( 'WP_DEBUG',         false );
 define( 'WP_DEBUG_LOG',     false );
 define( 'WP_DEBUG_DISPLAY', false );
 define( 'SCRIPT_DEBUG',     false );
-define( 'SAVEQUERIES',      false );
+define( 'SAVEQUERIES',      false );  // need to be disable for Query Monitor
 
 //** https://codex.wordpress.org/Editing_wp-config.php#Disable_WordPress_Auto_Updates
 define( 'AUTOMATIC_UPDATER_DISABLED',   false );  // Disable all automatic updates
 define( 'WP_AUTO_UPDATE_CORE',          true );   // Enable all core updates, including minor and major
-define( 'DO_NOT_UPGRADE_GLOBAL_TABLES', false );  // Disable DB Tables auto-update
+// define( 'DO_NOT_UPGRADE_GLOBAL_TABLES', false );  // Disable DB Tables auto-update to enable after the installation
 
 //** https://codex.wordpress.org/Editing_wp-config.php#Disable_unfiltered_HTML_for_all_users
 define( 'DISALLOW_UNFILTERED_HTML', true );
