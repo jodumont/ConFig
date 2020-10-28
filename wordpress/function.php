@@ -1,67 +1,86 @@
 // ref: https://github.com/scorpiock/wp-perf-optimization-without-plugin/blob/master/functions.php
 // Update following in your WordPress theme's functions.php file
 
-// Remove Block Library CSS
-function wpassist_remove_block_library_css(){
-    wp_dequeue_style( 'wp-block-library' );
-}
-add_action( 'wp_enqueue_scripts', 'wpassist_remove_block_library_css' );
-
-// Remove Query String from Static Resources
-function remove_cssjs_ver( $src ) {if( strpos( $src, '?ver=')) $src = remove_query_arg('ver', $src); return $src;}
-add_filter('style_loader_src', 'remove_cssjs_ver', 10, 2); // disable this if you use a plugin to remove string on JS/CSS
-add_filter('script_loader_src', 'remove_cssjs_ver', 10, 2); // disable this if you use a plugin to remove string on JS/CSS
-
-// Remove Emojis
+// Disable emojis
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
 remove_action('admin_print_scripts', 'print_emoji_detection_script');
 remove_action('admin_print_styles', 'print_emoji_styles');
 
-// Remove Shortlink
-remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
-
-// Disable Embed
+// Disable embeds
 function disable_embed(){wp_dequeue_script('wp-embed');}
 add_action('wp_footer', 'disable_embed');
 
-// Disable XML-RPC
+// Disable xml-rpc
 add_filter('xmlrpc_enabled', '__return_false');
+
+// Disable jQuery migrate (may break somes plugins (no images, ...))
+function deregister_qjuery() {if (!is_admin()) {wp_deregister_script('jquery');}}  
+add_action('wp_enqueue_scripts', 'deregister_qjuery'); 
+
+// Remove query strings
+function remove_cssjs_ver( $src ) {if( strpos( $src, '?ver=')) $src = remove_query_arg('ver', $src); return $src;}
+add_filter('style_loader_src', 'remove_cssjs_ver', 10, 2); // disable this if you use a plugin to remove string on JS/CSS
+add_filter('script_loader_src', 'remove_cssjs_ver', 10, 2); // disable this if you use a plugin to remove string on JS/CSS
+
+// Remove WordPress version number (may break wp_version_check() for update)
+remove_action('wp_head', 'wp_generator');
+
+// Remove wlwmanifest link
+remove_action('wp_head', 'wlwmanifest_link');
 
 // Remove RSD Link
 remove_action('wp_head', 'rsd_link');
 
-// Hide Version
-// but may break wp_version_check() for update
-remove_action('wp_head', 'wp_generator');
+// Remove shortlink
+remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
 
-// Remove WLManifest Link
-remove_action('wp_head', 'wlwmanifest_link');
+// Disable RSS feeds
 
-// Disable JQuery Migrate
-// May break somes plugins (no images, ...)
-function deregister_qjuery() {if (!is_admin()) {wp_deregister_script('jquery');}}  
-add_action('wp_enqueue_scripts', 'deregister_qjuery'); 
+// Remove RSS feeds links
 
-// Disable Self Pingback
-function disable_pingback(&$links) {foreach ($links as $l => $link) if (0 === strpos($link, get_option('home'))) unset($links[$l]);}
-add_action('pre_ping', 'disable_pingback');
-
-// Disable Heartbeat
-add_action('init', 'stop_heartbeat', 1);
-function stop_heartbeat() {wp_deregister_script('heartbeat');}
-
-// Disable Dashicons in Front-end
+// Remove Dashicons
 function wpdocs_dequeue_dashicon() {if (current_user_can( 'update_core' )) {return;}
 wp_deregister_style('dashicons');
 }
 add_action('wp_enqueue_scripts', 'wpdocs_dequeue_dashicon');
 
-// Disable Contact Form 7 CSS/JS on Every Page
-add_filter('wpcf7_load_js', '__return_false');
-add_filter('wpcf7_load_css', '__return_false');
 
-//* Adding DNS Prefetching
+// Disable scripts per page/post
+
+// Disable scripts with Regex
+
+// CDN Rewrite
+
+// Disable Password Strength Meter
+add_action('login_enqueue_scripts', function(){
+wp_dequeue_script('user-profile');
+wp_dequeue_script('password-strength-meter');
+wp_deregister_script('user-profile');
+$suffix = SCRIPT_DEBUG ? '' : '.min';
+wp_enqueue_script( 'user-profile', "/wp-admin/js/user-profile$suffix.js", array( 'jquery', 'wp-util' ), false, 1 );
+});
+
+// Add blank favicon
+
+// Disable Google Fonts
+
+// Disable self pingbacks
+function disable_pingback(&$links) {foreach ($links as $l => $link) if (0 === strpos($link, get_option('home'))) unset($links[$l]);}
+add_action('pre_ping', 'disable_pingback');
+
+// Disable WordPress Heartbeat API
+add_action('init', 'stop_heartbeat', 1);
+function stop_heartbeat() {wp_deregister_script('heartbeat');}
+
+// Disable abnd limit post revisions (in wp-config.php)
+
+// Disable REST API
+// Remove REST API links
+
+// Change autosave interval (in wp-config.php)
+
+//* DNS prefetching
 function wp_dns_prefetch() {
 echo '<meta http-equiv="x-dns-prefetch-control" content="on">
 <link rel="dns-prefetch" href="//fonts.googleapis.com" />
@@ -83,3 +102,21 @@ echo '<meta http-equiv="x-dns-prefetch-control" content="on">
 <link rel="dns-prefetch" href="//stats.wp.com" />';
 }
 add_action('wp_head', 'wp_dns_prefetch', 0);
+
+// Preconnect
+
+// Disable WooCommerce scripts and styles
+
+// Disable WooCommerce widgets
+
+// Disable WooCommerce status meta box
+
+// Disable WooCommerce cart fragments (AJAX)
+
+// Disable Google Maps API
+
+// Multisite spport (in wp-config.php)
+
+// Change WordPress login URL
+
+// Local analytics
