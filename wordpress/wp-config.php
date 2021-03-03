@@ -24,13 +24,11 @@ define('AUTH_KEY', '');
 define('SECURE_AUTH_KEY', '');
 define('LOGGED_IN_KEY', '');
 define('NONCE_KEY', '');
-define('SECURITY_KEY', '');
 
 define('AUTH_SALT', '');
 define('SECURE_AUTH_SALT', '');
 define('LOGGED_IN_SALT', '');
 define('NONCE_SALT', '');
-define('SECURITY_SALT', '');
 
 ///*** PREFERENCE
 //** https://codex.wordpress.org/Editing_wp-config.php#Moving_uploads_folder
